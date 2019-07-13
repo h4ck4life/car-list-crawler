@@ -1,0 +1,5 @@
+.env
+/node_modules
+/build
+/.vscode
+/test_2019-07-12.csv
