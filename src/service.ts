@@ -28,6 +28,12 @@ export class CarInfo {
         this.userAgent = userAgent;
     }
 
+    /**
+     * Get total page numbers in search page
+     *
+     * @returns {Promise<number>}
+     * @memberof CarInfo
+     */
     async getTotalPageNumbers(): Promise<number> {
         return await tinyreq({
             url: this.baseUrl + this.searchUri,
@@ -44,6 +50,13 @@ export class CarInfo {
         });
     }
 
+    /**
+     * Get car list by page number
+     *
+     * @param {number} pageNumber
+     * @returns {Promise<string[]>}
+     * @memberof CarInfo
+     */
     async getCarListByPageNumber(pageNumber: number): Promise<string[]> {
         var carList: string[] = [];
         return await tinyreq({
@@ -67,6 +80,13 @@ export class CarInfo {
         });
     }
 
+    /**
+     * Get car details by url
+     *
+     * @param {string} url
+     * @returns {Promise<CarDetails>}
+     * @memberof CarInfo
+     */
     async getCarDetails(url: string): Promise<CarDetails> {
         var carDetail = {} as CarDetails;
         return await tinyreq({
