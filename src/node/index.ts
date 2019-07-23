@@ -1,4 +1,4 @@
-import { CarInfo, CarDetails } from './src/service';
+import { CarInfo, CarDetails } from './service';
 const ObjectsToCsv = require('objects-to-csv');
 const dotenv = require('dotenv');
 
