@@ -5,27 +5,22 @@ module.exports = function (grunt) {
                 src: './public/src/script.js',
                 dest: './public/src/script.js'
             },
-            options: {
-                exclude: [
-                    '@tensorflow/tfjs',
-                    '@tensorflow/tfjs-vis',
-                    'papaparse',
-                ],
-                plugin: [
-                    ['tsify', {
-                        target: 'es6',
-                        removeComments: true,
-                        preserveConstEnums: true,
-                    }]
-                ],
+        },
+        uglify: {
+            dist: {
+                files: {
+                    './public/src/script.min.js': ['./public/src/script.js']
+                }
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-contrib-uglify-es');
 
     // Default task(s).
     grunt.registerTask('default', [
-        'browserify'
+        'browserify',
+        'uglify'
     ]);
 };
